@@ -1,0 +1,25 @@
+﻿using UnityEngine;
+
+public class CameraController : MonoBehaviour
+{
+
+    public Transform target;
+
+    public float smoothSpeed = 0.12f;
+    public Vector3 offset;
+
+    void Start()
+    {
+        target = GameObject.Find("Player").GetComponent<Transform>();
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+
+        transform.LookAt(target);
+    }
+
+}
