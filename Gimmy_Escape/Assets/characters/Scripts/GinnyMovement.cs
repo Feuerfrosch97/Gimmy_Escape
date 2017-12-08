@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
+using UnityEngine.UI;
 
 
 public class GinnyMovement : MonoBehaviour {
 
-    public float moveSpeed = 1;
+    public float moveSpeed;
     public float jumpHeight = 1;
     //public Transform groundCheck;
     public Rigidbody ProtoTraps;
     public Transform PlayerBack;
     public float ZahnräderNeeded = 3;
     public Transform groundCheck;
-    //public Text ZahnradDisplay;
+    public Text ZahnradDisplay;
 
     private Rigidbody rb;
     public bool grounded = true;
@@ -22,7 +22,7 @@ public class GinnyMovement : MonoBehaviour {
 	void Start ()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-	}
+    }
 
     void Update()
     {
@@ -30,7 +30,7 @@ public class GinnyMovement : MonoBehaviour {
 
         //ZahnradDisplay.text = ("x" + x);
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
+        if (Input.GetButtonDown("Jump") && grounded == true)
         {
             this.GetComponent<Rigidbody>().AddForce(new Vector2(0, jumpHeight));
             //grounded = false;
@@ -58,7 +58,18 @@ public class GinnyMovement : MonoBehaviour {
         //if (this.GetComponent<Rigidbody>().velocity.y < -5)
         //    this.GetComponent<Rigidbody>().velocity = new Vector2(this.GetComponent<Rigidbody>().velocity.x, -5);
         //Raycasting();
-
+        if (grounded == false)
+        {
+            moveSpeed = 3;
+        }
+        else if( grounded == true)
+        {
+            moveSpeed = 6;
+        }
+        else if (grounded == true && Input.GetButton("Fire1"))
+        {
+            moveSpeed = 12;
+        }
     }
     void FixedUpdate()
     {
@@ -69,7 +80,7 @@ public class GinnyMovement : MonoBehaviour {
         rb.velocity = new Vector2(h * moveSpeed, rb.velocity.y);
         rb.AddForce((Vector2.right * moveSpeed) * h);
         //}
-        if (Input.GetKeyUp(KeyCode.X) && grounded == true && x >= ZahnräderNeeded)
+        if (Input.GetButtonDown("Fire1") && grounded == true && x >= ZahnräderNeeded)
 
         {
             Rigidbody rocketInstance;
@@ -97,7 +108,14 @@ public class GinnyMovement : MonoBehaviour {
             Debug.Log("Zahnräder " + x);
 
         }
+        if(other.tag == "CameraTurnRight")
+        {
+            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.x = -2;
+            Debug.Log("CameraTurnFound");
+            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.y = 0.8f;
+            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.z = -8;
 
+        }
 
     }
     void OnCollisionEnter(Collision col)
@@ -110,7 +128,18 @@ public class GinnyMovement : MonoBehaviour {
             //    grounded = true;
             //}
         }
+        
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "CameraTurnRight")
+        {
+            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.x = 0;
+            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.y = 0.56f;
+            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.z = -2;
 
+            Debug.Log("CameraTurnFound");
+        }
     }
     //void Raycasting()
     //{

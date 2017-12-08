@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 54332153618107014}
   - component: {fileID: 136529935632165594}
   - component: {fileID: 114964473625206588}
+  - component: {fileID: 81637996247067708}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -68,8 +69,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950747889387886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28, y: 0.77, z: 0}
-  m_LocalScale: {x: 0.50834715, y: 0.98033357, z: 1}
+  m_LocalPosition: {x: -6.88, y: 0.2961, z: -0.0462}
+  m_LocalScale: {x: 0.3093128, y: 0.62917864, z: 0.30923405}
   m_Children:
   - {fileID: 4820349372312272}
   - {fileID: 4561663979458208}
@@ -158,6 +159,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!81 &81637996247067708
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950747889387886}
+  m_Enabled: 1
 --- !u!114 &114964473625206588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  jumpHeight: 780
+  jumpHeight: 300
   ProtoTraps: {fileID: 0}
   PlayerBack: {fileID: 4820349372312272}
   "Zahnr\xE4derNeeded": 3
@@ -184,7 +192,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950747889387886}
-  m_Material: {fileID: 13400000, guid: cf5d65176d604ed43ad97028c50c6735, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.26004118
