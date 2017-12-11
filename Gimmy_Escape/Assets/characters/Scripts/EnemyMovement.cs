@@ -33,19 +33,19 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        //if (GetComponentInChildren<PlayerTriggerDetection>().PlayerSeen == true)
-        //{
-        //    walkSpeed = FollowingDyingSpeed;
-        //    X = Player;
-        //    Debug.Log("PlayerSeen");
-        //    CollisionDetector.GetComponent<Collider>().enabled = false;
-        //}
-        //else if (GetComponentInChildren<PlayerTriggerDetection>().PlayerSeen == false)
-        //{
-        //    X = Patrol;
-        //    walkSpeed = TurnSpeed;
-        //    CollisionDetector.GetComponent<Collider>().enabled = true;
-        //}
+        if (GetComponentInChildren<PlayerTriggerDetection>().PlayerSeen == true)
+        {
+            walkSpeed = FollowingDyingSpeed;
+            X = Player;
+            Debug.Log("PlayerSeen");
+            CollisionDetector.GetComponent<Collider>().enabled = false;
+        }
+        else if (GetComponentInChildren<PlayerTriggerDetection>().PlayerSeen == false)
+        {
+            X = Patrol;
+            walkSpeed = TurnSpeed;
+            CollisionDetector.GetComponent<Collider>().enabled = true;
+        }
         float step = walkSpeed * Time.deltaTime;
         Vector3 TMP = Vector3.MoveTowards(transform.position, X.position, step);
         TMP.y = Y;
