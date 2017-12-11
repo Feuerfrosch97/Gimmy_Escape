@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
         else if (GameObject.Find("CameraTurn").GetComponent<CameraTurnRight>().CameraToDoor == false)
         {
             target = GameObject.Find("Player").GetComponent<Transform>();
-            smoothSpeed  = 0.125f;
+            smoothSpeed  = 1f;
             offset.x = 0f;
             offset.y = 1.39f;
             offset.z = -3.25f;
