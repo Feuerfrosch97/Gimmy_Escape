@@ -2,15 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraTurnRight : MonoBehaviour {
+public class CameraTurnRight : MonoBehaviour
+{
+    public Camera MainCamera;
+    public bool CameraToDoor = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
+
+
+    void Update()
+    {
+
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            CameraToDoor = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            CameraToDoor = false;
+        }
+    }
 }

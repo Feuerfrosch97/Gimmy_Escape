@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
 
     public float smoothSpeed = 0.12f;
     public Vector3 offset;
+    //public Transform TargetForMovement;
 
     void Start()
     {
@@ -20,6 +21,22 @@ public class CameraController : MonoBehaviour
         transform.position = smoothedPosition;
 
         transform.LookAt(target);
+        if (GameObject.Find("CameraTurn").GetComponent<CameraTurnRight>().CameraToDoor == true)
+        {
+            target = GameObject.Find("door_open (3)").GetComponent<Transform>();
+            smoothSpeed = 0.05f;
+            offset.x = -8f;
+            offset.y = 1.39f;
+           offset.z = -3.25f;
+        }
+        else if (GameObject.Find("CameraTurn").GetComponent<CameraTurnRight>().CameraToDoor == false)
+        {
+            target = GameObject.Find("Player").GetComponent<Transform>();
+            smoothSpeed  = 1f;
+            offset.x = 0f;
+            offset.y = 1.39f;
+            offset.z = -3.25f;
+        }
     }
 
 }

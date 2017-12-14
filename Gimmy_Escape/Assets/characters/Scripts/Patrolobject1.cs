@@ -20,7 +20,7 @@ public class Patrolobject1 : MonoBehaviour
     {
         Rb3d = gameObject.GetComponent<Rigidbody>();
         StartCoroutine(Move());
-        Turning = GameObject.Find("Enemy (2)").GetComponent<Animation>();
+        Turning = GameObject.Find("Cameraton").GetComponent<Animation>();
         //GameObject enemy1;
         //EnemyMovement EnemyMovementScript = enemy1.GetComponent<EnemyMovement>();
         //EnemyMovement = GetComponent("EnemyMovement");
@@ -41,7 +41,7 @@ public class Patrolobject1 : MonoBehaviour
         {
             Turning.Play("Turn1");
             Debug.Log("Enemy Collision Detected");
-            GameObject.Find("Enemy (2)").GetComponent<EnemyMovement>().TurnSpeed = 0;
+            GameObject.Find("Cameraton").GetComponent<EnemyMovement>().TurnSpeed = 0;
             //DetectCollision.transform.position.x + 3;
             GameObject.Find("CollisionDetector").GetComponent<Transform>().transform.position = new Vector3(transform.position.x, transform.position.y, 3);
         }
@@ -50,7 +50,7 @@ public class Patrolobject1 : MonoBehaviour
             Turning["Turn2"].speed = -3f;
             Turning.Play("Turn2");
             Debug.Log("Enemy Collision Detected");
-            GameObject.Find("Enemy (2)").GetComponent<EnemyMovement>().TurnSpeed = 0;
+            GameObject.Find("Cameraton)").GetComponent<EnemyMovement>().TurnSpeed = 0;
 
 
         }
@@ -68,7 +68,7 @@ public class Patrolobject1 : MonoBehaviour
     {
 
         yield return new WaitForSeconds(1);
-        GameObject.Find("Enemy (2)").GetComponent<EnemyMovement>().TurnSpeed = 2;
+        GameObject.Find("Cameraton").GetComponent<EnemyMovement>().TurnSpeed = 2;
         Turning.Play("Walk");
 
 
@@ -76,7 +76,7 @@ public class Patrolobject1 : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Cameraton")
         {
             StartCoroutine(TurningTime());
         }

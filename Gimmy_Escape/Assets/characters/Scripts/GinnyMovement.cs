@@ -14,6 +14,7 @@ public class GinnyMovement : MonoBehaviour {
     public float ZahnräderNeeded = 3;
     public Transform groundCheck;
     public Text ZahnradDisplay;
+    public bool CameraTurn  = false;
 
     private Rigidbody rb;
     public bool grounded = true;
@@ -92,6 +93,7 @@ public class GinnyMovement : MonoBehaviour {
             transform.position = new Vector3(-7.35f, -2.87f, 0f);
             x = 0;
         }
+        //if()
     }
 
     void OnTriggerEnter(Collider other)
@@ -108,14 +110,15 @@ public class GinnyMovement : MonoBehaviour {
             Debug.Log("Zahnräder " + x);
 
         }
-        if(other.tag == "CameraTurnRight")
-        {
-            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.x = -2;
-            Debug.Log("CameraTurnFound");
-            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.y = 0.8f;
-            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.z = -8;
+        //if(other.tag == "CameraTurnRight")
+        //{
+        //    //GameObject.Find("Main Camera").GetComponent<CameraController>().offset.x = -4;
+        //    //Debug.Log("CameraTurnFound");
+        //    //GameObject.Find("Main Camera").GetComponent<CameraController>().offset.y = 0.8f;
+        //    //GameObject.Find("Main Camera").GetComponent<CameraController>().offset.z = -8;
+        //    CameraTurn = true;
 
-        }
+        //}
 
     }
     void OnCollisionEnter(Collision col)
@@ -130,17 +133,18 @@ public class GinnyMovement : MonoBehaviour {
         }
         
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "CameraTurnRight")
-        {
-            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.x = 0;
-            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.y = 0.56f;
-            GameObject.Find("Main Camera").GetComponent<CameraController>().offset.z = -2;
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    //if (other.tag == "CameraTurnRight")
+    //    //{
+    //    //    GameObject.Find("Main Camera").GetComponent<CameraController>().offset.x = 0;
+    //    //    GameObject.Find("Main Camera").GetComponent<CameraController>().offset.y = 0.56f;
+    //    //    GameObject.Find("Main Camera").GetComponent<CameraController>().offset.z = -2;
 
-            Debug.Log("CameraTurnFound");
-        }
-    }
+    //    //    Debug.Log("CameraTurnFound");
+    //    //    CameraTurn = false;
+    //    //}
+    //}
     //void Raycasting()
     //{
     //    Debug.DrawLine(lineStart.position, groundedEnd.position, Color.green);
