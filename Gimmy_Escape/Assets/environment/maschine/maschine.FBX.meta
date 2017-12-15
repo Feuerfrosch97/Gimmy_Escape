@@ -25,6 +25,15 @@ ModelImporter:
     100034: pipe_stamp_low004
     100036: pipe_stamp_low006
     100038: steelbeam_closed_3
+    100040: machine_pipe
+    100042: machine_wheel
+    100044: maschine
+    100046: pipe_stamp_01
+    100048: pipe_stamp_02
+    100050: pipe_stamp_03
+    100052: pipe_stamp_04
+    100054: steelbar
+    100056: machine_pipes
     400000: Cylinder001
     400002: //RootNode
     400004: pipe_90_oneside
@@ -45,6 +54,15 @@ ModelImporter:
     400034: pipe_stamp_low004
     400036: pipe_stamp_low006
     400038: steelbeam_closed_3
+    400040: machine_pipe
+    400042: machine_wheel
+    400044: maschine
+    400046: pipe_stamp_01
+    400048: pipe_stamp_02
+    400050: pipe_stamp_03
+    400052: pipe_stamp_04
+    400054: steelbar
+    400056: machine_pipes
     2300000: Cylinder001
     2300002: pipe_90_oneside
     2300004: pipe_90_oneside001
@@ -64,6 +82,15 @@ ModelImporter:
     2300032: pipe_stamp_low004
     2300034: pipe_stamp_low006
     2300036: steelbeam_closed_3
+    2300038: machine_pipe
+    2300040: machine_wheel
+    2300042: maschine
+    2300044: pipe_stamp_01
+    2300046: pipe_stamp_02
+    2300048: pipe_stamp_03
+    2300050: pipe_stamp_04
+    2300052: steelbar
+    2300054: machine_pipes
     3300000: Cylinder001
     3300002: pipe_90_oneside
     3300004: pipe_90_oneside001
@@ -83,6 +110,15 @@ ModelImporter:
     3300032: pipe_stamp_low004
     3300034: pipe_stamp_low006
     3300036: steelbeam_closed_3
+    3300038: machine_pipe
+    3300040: machine_wheel
+    3300042: maschine
+    3300044: pipe_stamp_01
+    3300046: pipe_stamp_02
+    3300048: pipe_stamp_03
+    3300050: pipe_stamp_04
+    3300052: steelbar
+    3300054: machine_pipes
     4300000: steelbeam_closed_3
     4300002: Cylinder001
     4300004: pipe_stamp_low
@@ -102,12 +138,33 @@ ModelImporter:
     4300032: pipe_90_oneside002
     4300034: pipe_medium_oneside003
     4300036: pipe_90_oneside003
+    4300038: machine_wheel
+    4300040: pipe_stamp_01
+    4300042: pipe_stamp_02
+    4300044: pipe_stamp_03
+    4300046: pipe_stamp_04
+    4300048: machine_pipe
+    4300050: steelbar
+    4300052: maschine
+    4300054: machine_pipes
+    7400000: Take 001
+    11100000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bigwheel
+    second: {fileID: 2100000, guid: 43d4d00130e2d394a8c57f9864805137, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: brass
     second: {fileID: 2100000, guid: c42f2f6ef2e5cfe4db5754cfc8252841, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: machine
+    second: {fileID: 2100000, guid: adc57bde66c852e46a9e46f76e31479c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -148,7 +205,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -191,10 +276,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
